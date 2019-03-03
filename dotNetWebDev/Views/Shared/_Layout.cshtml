@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">J<i class="fab fa-empire"></i>rd<i class="fab fa-atlassian"></i>n Re<i class="fas fa-h-square"></i>bein</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lessons <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Index">Lesson 1</a></li>
+                        <li><a href="Lesson2">Lesson 2</a></li>
+                        <li><a href="Lesson3">Lesson 3</a></li>
+                        <li><a href="Foo/Index">Lesson 4 - Foo</a></li>
+                        <li><a href="#">Lesson 5</a></li>
+                        <li><a href="#">Lesson 6</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">J<i class="fab fa-empire"></i>rd<i class="fab fa-atlassian"></i>n Re<i class="fas fa-h-square"></i>bein</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lessons <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Index">Lesson 1</a></li>
+                        <li><a href="Lesson2">Lesson 2</a></li>
+                        <li><a href="Lesson3">Lesson 3</a></li>
+                        <li><a href="Foo/Index">Lesson 4 - Foo</a></li>
+                        <li><a href="#">Lesson 5</a></li>
+                        <li><a href="#">Lesson 6</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

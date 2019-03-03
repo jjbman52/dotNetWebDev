@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace dotNetWebDev.Controllers
+{
+    public class HW10Controller : Controller
+    {
+        // GET: HW10
+        public ActionResult Index()
+        {
+            return View();
+        }
+            public ActionResult colorCombinator(FormCollection form)
+        {
+            String color1, color2;
+
+            color1 = form["color1"];
+            color2 = form["color2"];
+            
+
+            if (color1 == "red" && color2 == "red")
+            {
+                ViewBag.Color = "red";
+            }
+            else if (color1 == "green" && color2 == "green")
+            {
+                ViewBag.Color = "green";
+            }
+            else if (color1 == "blue" && color2 == "blue")
+            {
+                ViewBag.Color = "blue";
+            }
+            else if (color1 == "red" && color2 == "green" || color2 == "red" && color1 == "green")
+            {
+                ViewBag.Color = "Yellow";
+            }
+            else if (color1 == "red" && color2 == "blue" || color2 == "red" && color1 == "blue")
+            {
+                ViewBag.Color = "purple";
+            }
+            else if (color1 == "green" && color2 == "blue" || color2 == "green" && color1 == "green")
+            {
+                ViewBag.Color = "cyan";
+            }
+            else
+            {
+                ViewBag.Color = "Invailid";
+            }
+
+
+            return View();
+        }
+    }
+}
