@@ -1,86 +1,68 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="jquery-ui.min.css" rel="stylesheet" />
-    <link href="animate.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="jquery-ui.min.js"></script>
-</head>
-<body>
+﻿@{
+    ViewBag.Title = "Birthday";
+}
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Hello</h1>
-            <button class="btn">Start Here</button>
-        </div>
+<!-- content -->
+<div class="container" style="min-width:480px;">
+    <div class="jumbotron">
+        <h1>Happy Birthday!</h1>
+    </div>
+    <form role="form">
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <h3>Row 1</h3>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Birthday</label>
+                    <input type="date" class="form-control" id="birthday" placeholder="Enter birthday">
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Select your favorite balloons</strong></h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <ul>
+                            @{
+                                foreach (string ball in ViewBag.balloons)
+                                {
+                                    <li>
+                                        @Html.CheckBox(ball, false, new { @class = "bx" })
+                                        @Html.Label(ball, ball + " Ball")
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <h3>Row 2</h3>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <h3>Row 3</h3>
-            </div>
+            <button type="button" class="btn btn-default">Submit</button>
         </div>
-    </div>
+        <div class="col-sm-6" style="text-align:center;">
 
-    <div class="container">
-        <h1>Happy Birthday!!</h1>
-        <form role="form">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input id="name" type="text" class="form-control" placeholder="Enter name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="birthday">Birthday</label>
-                        <input id="birthday" type="text" class="form-control" placeholder="Enter birthday" />
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <strong>Select your favorite</strong>
-                            </h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="checkbox">
-                                <label><input type="checkbox" class="bx" id="gb" />Green Ballon</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" class="bx" id="ob" />Orange Ballon</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" class="bx" id="pb" />Purple Ballon</label>
-                            </div>
-                            <button type="button" class="btn btn-default">Submit</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img src="images/green.png" id="gbImg" class="ball" hidden />
-                    <img src="images/orange.png" id="obImg" class="ball" hidden />
-                    <img src="images/purple.png" id="pbImg" class="ball" hidden />
-                </div>
-                <div class="col-md-6">
+            @{
+                foreach (string ball in ViewBag.balloons)
+                {
+                    String png = "../Content/images/" + ball + ".png";
+                    String id = ball + "Img";
 
-                </div>
-            </div>
-        </form>
-    </div>
+                    <img src="@png" alt="@ball" class="ball" id="@id" hidden/>
+                }
+            }
 
+        </div>
+    </form>
+</div>
 
+@section scripts
+{
     <script>
         $(function () {
-            $('#birthday').datepicker();
-            $('.ball').draggable();
+            $("#birthday").datepicker();
+            $(".ball").draggable({ appendTo: "body" });
+
             $('h1').addClass('animated bounce');
 
             $('.bx').change(function () {
@@ -92,5 +74,4 @@
             });
         });
     </script>
-</body>
-</html>
+}

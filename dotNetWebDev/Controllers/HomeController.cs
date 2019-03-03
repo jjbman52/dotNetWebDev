@@ -15,6 +15,8 @@ namespace dotNetWebDev.Controllers
 
         public ActionResult Lesson2()
         {
+            string[] balloons = { "red", "green", "blue" };
+            ViewBag.balloons = balloons;
             return View();
         }
 

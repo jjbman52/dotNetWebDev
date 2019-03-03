@@ -14,6 +14,12 @@ namespace dotNetWebDev
                 routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                    name: "hw2",
+                    url: "{controller}/{action}",
+                    defaults: new { controller = "Home", action = "hw2"}
+                );
+
+            routes.MapRoute(
                     name: "hw8",
                     url: "{controller}/{action}/{name}/{age}/{color}",
                     defaults: new { controller = "hw8", action = "homework8", name = UrlParameter.Optional, age = UrlParameter.Optional, color = UrlParameter.Optional }
