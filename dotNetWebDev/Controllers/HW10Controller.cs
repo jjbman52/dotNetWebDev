@@ -23,15 +23,15 @@ namespace dotNetWebDev.Controllers
 
             if (color1 == "red" && color2 == "red")
             {
-                ViewBag.Color = "red";
+                ViewBag.Color = "Red";
             }
             else if (color1 == "green" && color2 == "green")
             {
-                ViewBag.Color = "green";
+                ViewBag.Color = "Green";
             }
             else if (color1 == "blue" && color2 == "blue")
             {
-                ViewBag.Color = "blue";
+                ViewBag.Color = "Blue";
             }
             else if (color1 == "red" && color2 == "green" || color2 == "red" && color1 == "green")
             {
@@ -39,11 +39,11 @@ namespace dotNetWebDev.Controllers
             }
             else if (color1 == "red" && color2 == "blue" || color2 == "red" && color1 == "blue")
             {
-                ViewBag.Color = "purple";
+                ViewBag.Color = "Purple";
             }
-            else if (color1 == "green" && color2 == "blue" || color2 == "green" && color1 == "green")
+            else if (color1 == "green" && color2 == "blue" || color2 == "green" && color1 == "blue")
             {
-                ViewBag.Color = "cyan";
+                ViewBag.Color = "Cyan";
             }
             else
             {

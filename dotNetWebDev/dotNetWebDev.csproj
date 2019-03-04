@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HW10Controller.cs" />
     <Compile Include="Controllers\hw8Controller.cs" />
+    <Compile Include="Controllers\HW9Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,8 +188,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Home\HW2.cshtml" />
-    <None Include="Views\Home\HW10\Index.cshtml" />
+    <Content Include="Views\Home\HW5.cshtml" />
+    <None Include="Views\HW10\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -201,15 +202,21 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Lesson3.cshtml" />
-    <Content Include="Views\Home\Lesson2.cshtml" />
-    <Content Include="Views\Home\Foo\Index.cshtml" />
-    <Content Include="Views\Home\Foo\Bar.cshtml" />
-    <Content Include="Views\Home\HW10\colorCombinator.cshtml" />
+    <Content Include="Views\Home\Birthday.cshtml" />
+    <Content Include="Views\Foo\Index.cshtml" />
+    <Content Include="Views\Foo\Bar.cshtml" />
+    <Content Include="Views\HW10\colorCombinator.cshtml" />
+    <Content Include="Views\Home\HW3.cshtml" />
+    <Content Include="Views\Home\HW4.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Stuff.cshtml" />
     <Content Include="Views\Home\AddNumbers.cshtml" />
-    <Content Include="Views\Home\hw8\homework8.cshtml" />
-    <Content Include="Views\Home\HW9\customer.cshtml" />
+    <Content Include="Views\hw8\homework8.cshtml" />
+    <Content Include="Views\HW9\account.cshtml" />
+    <Content Include="Views\HW9\products.cshtml" />
+    <Content Include="Views\HW9\discounts.cshtml" />
+    <Content Include="Views\HW9\register.cshtml" />
+    <Content Include="Views\HW9\signin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

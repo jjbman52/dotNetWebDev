@@ -23,26 +23,30 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lessons <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="HW2">HW 2 - Create "Lessons" menu</a></li>
-                        <li><a href="Lesson2">Lesson 2</a></li>
-                        <li><a href="Lesson3">Lesson 3</a></li>
-                        <li><a href="Foo/Index">Lesson 4 - Foo</a></li>
-                        <li><a href="#">Lesson 5</a></li>
-                        <li><a href="#">Lesson 6</a></li>
+                        <li><a href="~/Home/Index"><i class="fas fa-chevron-circle-right"></i> HW 2 - Create "Lessons" menu</a></li>
+                        <li><a href="~/Home/HW3"><i class="fas fa-chevron-circle-right"></i> HW 3 - Bootstrap Jumbotron</a></li>
+                        <li><a href="~/Home/HW4"><i class="fas fa-chevron-circle-right"></i> HW 4 - Add icons to all links</a></li>
+                        <li><a href="~/Home/HW5"><i class="fas fa-chevron-circle-right"></i> HW 5 - Randomize the attention seeker</a></li>
+                        <li><a href="~/Foo/Index"><i class="fas fa-chevron-circle-right"></i> HW 7 - Create a new controller and associated view</a></li>
+                        <li><a href="~/hw8/homework8"><i class="fas fa-chevron-circle-right"></i> HW 8 - Create a new controller route</a></li>
+                        <li><a href="~/HW10/Index"><i class="fas fa-chevron-circle-right"></i> HW 10 - Create a color combinator</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lessons <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Products<span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="HW2">HW 2 - Create "Lessons" menu</a></li>
-                        <li><a href="Lesson2">Lesson 2</a></li>
-                        <li><a href="Lesson3">Lesson 3</a></li>
-                        <li><a href="Foo/Index">Lesson 4 - Foo</a></li>
-                        <li><a href="#">Lesson 5</a></li>
-                        <li><a href="#">Lesson 6</a></li>
+                        <li><a href="~/HW9/products" id="search">Product</a></li>
+                        <li><a href="~/HW9/discounts" id="search">Discounts</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="~/HW9/register" id="search">Register</a></li>
+                        <li><a href="~/HW9/signin" id="search">Signin</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="~/HW9/account">Account</a></li>
                     </ul>
-                </li>
-            </ul>
+</ul>
         </div>
     </nav>
     @RenderBody()

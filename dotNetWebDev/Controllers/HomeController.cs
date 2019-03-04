@@ -13,7 +13,22 @@ namespace dotNetWebDev.Controllers
             return View();
         }
 
-        public ActionResult Lesson2()
+        public ActionResult HW3()
+        {
+            return View();
+        }
+
+        public ActionResult HW4()
+        {
+            return View();
+        }
+
+        public ActionResult HW5()
+        {
+            return View();
+        }
+
+        public ActionResult Birthday()
         {
             string[] balloons = { "red", "green", "blue" };
             ViewBag.balloons = balloons;
