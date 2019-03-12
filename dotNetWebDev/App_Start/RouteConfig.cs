@@ -62,37 +62,49 @@ namespace dotNetWebDev
                 );
 
             routes.MapRoute(
-                    name: "Lesson3",
-                    url: "{controller}/{action}/{color}",
-                    defaults: new { controller = "Home", action = "Lesson3", color = UrlParameter.Optional }
+                    name: "BirthdayOrder",
+                    url: "{controller}/{action}/{id}",
+                    defaults: new { controller = "BirthdayOrder", action = "Order", color = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
-                    name: "HW9products",
+                    name: "HW9DisplayProducts",
                     url: "{controller}/{action}/{color}",
-                    defaults: new { controller = "HW9", action = "products", color = UrlParameter.Optional }
+                    defaults: new { controller = "HW9", action = "DisplayProducts", color = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
-                    name: "HW9account",
+                    name: "HW9CustomerInfo",
+                    url: "{controller}/{action}/{color}",
+                    defaults: new { controller = "HW9", action = "CustomerInfo", color = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
+                    name: "HW9Results",
+                    url: "{controller}/{action}/{color}",
+                    defaults: new { controller = "HW9", action = "Results", color = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
+                    name: "HW9Account",
                     url: "{controller}/{action}/{color}",
                     defaults: new { controller = "HW9", action = "account", color = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
-                    name: "HW9discounts",
+                    name: "HW9Discounts",
                     url: "{controller}/{action}/{color}",
                     defaults: new { controller = "HW9", action = "discounts", color = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
-                    name: "HW9register",
+                    name: "HW9Register",
                     url: "{controller}/{action}/{color}",
                     defaults: new { controller = "HW9", action = "register", color = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
-                    name: "HW9signin",
+                    name: "HW9Signin",
                     url: "{controller}/{action}/{color}",
                     defaults: new { controller = "HW9", action = "signin", color = UrlParameter.Optional }
                 );

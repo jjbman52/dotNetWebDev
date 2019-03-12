@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Product>
+@using dotNetWebDev.Models
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Products</h1>
+        <p class="lead">
+            We have the best prices and selection of high quality foods & beverages on the
+            Planet. Check out our Products below.
+        </p>
+    </div>
+
+    <form method="post" name="form" action="@Url.Action("Results", "HW9")">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price ($)</th>
+                    <th>Quantity</th>
+                    <th>Total ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.Name (s)</td>
+                        <td id="price_@p.Id">@p.Price</td>
+                        <td><input class="form-control qty" type="number" name="@p.Id" id="@p.Id" placeholder="0" /></td>
+                        <td id="total_@p.Id">0.00</td>
+
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">Total</th>
+                    <th id="total">0.00</th>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <h3>Customer Info</h3>
+        <br>
+        <div class="form-group" id="form-cust-info">
+            <label for="fname">First Name: </label>
+            <input type="text" class="form-control" id="fname" name="fname">
+            <label for="lname">Last Name: </label>
+            <input type="text" class="form-control" id="lname" name="lname">
+            <label for="address">Address: </label>
+            <input type="text" class="form-control" id="address" name="address">
+        </div>
+
+        <button type="submit" id="submit-prod" class="btn btn-default">Submit Order</button>
+    </form>
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var total = 0;
+            $('.qty').change(function () {
+                total = 0;
+                var qty = $('#' + this.id).val();
+                var price = $("#price_" + this.id).text();
+                if (qty < 0) {
+                    alert("You must have a quantity that is 0 or greater!");
+                } else {
+                    if (this.id == 102 && qty == 3) {
+                        $('#total_' + this.id).text("18.00");
+                    } else {
+                        $('#total_' + this.id).text((qty * price).toFixed(2));
+                    }
+
+                    $('.qty').each(function () { (total += Number($("#total_" + this.id).text())) });
+                    
+                    $('#total').html(total.toFixed(2));
+                }
+            });
+
+            $("#submit-prod").click(function () {
+                if (total == 0) {
+                    event.preventDefault();
+                    alert("You haven't selected anything to purchase");
+                }
+
+                if ($("#fname").val() == "") {
+                    event.preventDefault();
+                    alert("First name is required");
+                }
+
+                if ($("#lname").val() == "") {
+                    event.preventDefault();
+                    alert("Last Name is required");
+                }
+
+                if ($("#address").val() == "") {
+                    event.preventDefault();
+                    alert("Address is required");
+                }
+            });
+        });
+    </script>
+}

@@ -28,13 +28,6 @@ namespace dotNetWebDev.Controllers
             return View();
         }
 
-        public ActionResult Birthday()
-        {
-            string[] balloons = { "red", "green", "blue" };
-            ViewBag.balloons = balloons;
-            return View();
-        }
-
         public ActionResult Lesson3(String color)
         {
             ViewBag.Color = color;

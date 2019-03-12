@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BirthdayOrderController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FooController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -135,14 +136,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
+    <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\grayscale.css" />
+    <Content Include="Content\grayscale.min.css" />
     <Content Include="Content\images\black.png" />
     <Content Include="Content\images\blue.png" />
     <Content Include="Content\images\blue_green.png" />
@@ -153,6 +160,7 @@
     <Content Include="Content\images\purple.png" />
     <Content Include="Content\images\red.png" />
     <Content Include="Content\images\silver.png" />
+    <Content Include="Content\jquery-ui-1.10.4.custom.min.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fa-brands-400.svg" />
@@ -161,8 +169,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />
@@ -176,19 +182,23 @@
     <Content Include="fonts\fa-solid-900.woff" />
     <Content Include="fonts\fa-solid-900.woff2" />
     <None Include="Properties\PublishProfiles\dotNetWebDev20190302083532 - Web Deploy.pubxml" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.custom.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\Home\HW5.cshtml" />
+    <Content Include="Views\BirthdayOrder\Order.cshtml" />
+    <Content Include="Views\BirthdayOrder\Results.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Views\HW10\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -202,25 +212,24 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Lesson3.cshtml" />
-    <Content Include="Views\Home\Birthday.cshtml" />
     <Content Include="Views\Foo\Index.cshtml" />
     <Content Include="Views\Foo\Bar.cshtml" />
     <Content Include="Views\HW10\colorCombinator.cshtml" />
     <Content Include="Views\Home\HW3.cshtml" />
     <Content Include="Views\Home\HW4.cshtml" />
-    <None Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Stuff.cshtml" />
     <Content Include="Views\Home\AddNumbers.cshtml" />
     <Content Include="Views\hw8\homework8.cshtml" />
-    <Content Include="Views\HW9\account.cshtml" />
-    <Content Include="Views\HW9\products.cshtml" />
-    <Content Include="Views\HW9\discounts.cshtml" />
-    <Content Include="Views\HW9\register.cshtml" />
+    <Content Include="Views\HW9\Account.cshtml" />
+    <Content Include="Views\HW9\DisplayProducts.cshtml" />
+    <Content Include="Views\HW9\Discounts.cshtml" />
+    <Content Include="Views\HW9\Register.cshtml" />
     <Content Include="Views\HW9\signin.cshtml" />
+    <Content Include="Views\HW9\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -232,8 +241,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

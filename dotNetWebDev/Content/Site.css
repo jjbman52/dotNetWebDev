@@ -22,3 +22,42 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    background-color: #77b8fc;
+}
+
+.btn {
+    background-color: #cbdeff;
+}
+
+.navbar {
+    background-color: #cbdeff;
+}
+
+.navbar-header {
+    color: white;
+}
+
+#form-cust-info {
+    margin-left: 5em;
+    font-weight: bold;
+}
+
+#order-thanks {
+    font-weight: bold;
+}
+
+#submit-prod {
+    margin-left: 12em;
+}
+
+#order-results {
+    margin-left: 10em;
+}
+
+#order-results-total {
+    margin-left: 5em;
+    font-weight: bold;
+    border: medium;
+}

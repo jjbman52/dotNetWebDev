@@ -1,0 +1,32 @@
+﻿@model dotNetWebDev.Models.Session
+@using dotNetWebDev.Models
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Order Details</h1>
+    </div>
+    <h2 id="order-thanks">Thank you for your Order!</h2>
+    <h2>Name: &nbsp&nbsp&nbsp @Model.Name<br />
+    Address: @Model.Address
+</h2>
+    <ul id="order-results">
+        @{
+            foreach (var o in Model.Orders)
+            {
+                if (o.Prod.Id == "102" && o.Qty == 3)
+                {
+                    <li>@String.Format("{0} {1} {2}", o.Qty, o.Prod.Name , "18.00")</li>
+                }
+                else
+                {
+                <li>@String.Format("{0} {1} {2}", o.Qty, o.Prod.Name, o.Prod.Price * o.Qty)</li>
+                }
+            }
+        }
+    </ul>
+    <h3 id="order-results-total">Total Cost: $@Model.Total</h3>
+</div>

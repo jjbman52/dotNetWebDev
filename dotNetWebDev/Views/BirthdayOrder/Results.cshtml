@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Results";
+}
+
+<div class="container" style="min-width:480px;">
+    <div class="jumbotron">
+        <h1>Results</h1>
+    </div>
+
+
+
+    <div class="col-sm-6" style="text-align:center;">
+        Thank you for your order, @ViewBag.BallonOrderName.
+        The order will be shipped on @ViewBag.BallonOrderBirthday.
+        <ul>
+            @{ foreach (var balloon in ViewBag.list)
+                {
+                    <li style="color:@balloon"> @balloon balloon</li>
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="col-sm-6" style="text-align:center;">
+
+        @{
+            foreach (var balloon in ViewBag.list)
+            {
+                String png = "../Content/images/" + balloon + ".png";
+                String id = balloon + "Img";
+
+                <img src="@png" alt="@balloon" class="ball" id="@id" />
+            }
+        }
+
+    </div>
+</div>

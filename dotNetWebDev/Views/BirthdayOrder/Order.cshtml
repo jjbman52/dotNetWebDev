@@ -1,36 +1,37 @@
-﻿@{
-    ViewBag.Title = "Birthday";
+﻿
+@{
+    ViewBag.Title = "Order";
 }
 
-<!-- content -->
 <div class="container" style="min-width:480px;">
     <div class="jumbotron">
-        <h1>Happy Birthday!</h1>
+        <h1>Ballon Order</h1>
     </div>
-    <form role="form">
+    <form role="form" method="post" action="~/BirthdayOrder/Results">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input type="text" class="form-control" name="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
                     <label for="birthday">Birthday</label>
-                    <input type="date" class="form-control" id="birthday" placeholder="Enter birthday">
+                    <input class="form-control" id="birthday "name="birthday" placeholder="Enter birthday">
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><strong>Select your favorite balloons</strong></h3>
+                        <h3 class="panel-title"><strong>Select balloons you would like to order</strong></h3>
                     </div>
                     <div class="panel-body">
-
+                        @Html.CheckBox("All", false, new { id = "allBoxes" })
+                        @Html.Label("All","Select All")
                         <ul>
                             @{
                                 foreach (string ball in ViewBag.balloons)
                                 {
                                     <li>
                                         @Html.CheckBox(ball, false, new { @class = "bx" })
-                                        @Html.Label(ball, ball + " Ball")
+                                        @Html.Label(ball, ball + " Balloon")
                                     </li>
                                 }
                             }
@@ -38,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
         <div class="col-sm-6" style="text-align:center;">
 
@@ -48,7 +49,7 @@
                     String png = "../Content/images/" + ball + ".png";
                     String id = ball + "Img";
 
-                    <img src="@png" alt="@ball" class="ball" id="@id" hidden/>
+                    <img src="@png" alt="@ball" class="ball" id="@id" hidden />
                 }
             }
 
@@ -60,16 +61,36 @@
 {
     <script>
         $(function () {
-            $("#birthday").datepicker();
             $(".ball").draggable({ appendTo: "body" });
+            $('#birthday').datepicker({ dateFormat: "mm-dd" });
 
             $('h1').addClass('animated bounce');
+            $('#allBoxes').prop("checked", false);
+
+            $('.bx').each(function () {
+                $(this).prop("checked", false);
+            });
+
+            $('#allBoxes').change(function () {
+                if ($('#allBoxes').is(':checked')) {
+                    $('.bx').each(function () {
+                        $('#' + $(this).attr('id') + 'Img').show().removeClass().addClass('animated zoomIn');
+                        $(this).prop("checked", true);
+                    });
+                } else {
+                    $('.bx').each(function () {
+                        $('#' + $(this).attr('id') + 'Img').addClass('animated zoomOut');
+                        $(this).prop("checked", false);
+                    });
+                }
+            });
 
             $('.bx').change(function () {
                 $('.bx').each(function () {
                     $(this).is(':checked') ?
                         $('#' + $(this).attr('id') + 'Img').show().removeClass().addClass('animated zoomIn') :
-                        $('#' + $(this).attr('id') + 'Img').addClass('animated zoomOut');
+                        $('#' + $(this).attr('id') + 'Img').addClass('animated zoomOut')
+                    $('#allBoxes').prop("checked", false);
                 });
             });
         });
