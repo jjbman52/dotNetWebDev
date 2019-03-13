@@ -59,7 +59,7 @@ namespace dotNetWebDev.Controllers
         public ActionResult Results(FormCollection form)
         {
             Session session = new Session();
-            session.Discount = 11.4;
+            session.Discount = 0;
 
             session.Name = form["fname"] + " " + form["lname"];
             session.Address = form["address"];
@@ -75,6 +75,11 @@ namespace dotNetWebDev.Controllers
                 {
                     orders.Add(new Order { Prod = product, Qty = qty });
                     total += product.Price * qty;
+
+                    if (product.Id == "102" && qty == 3)
+                    {
+                        session.Discount = 11.4;
+                    }
                 }
             }
 
